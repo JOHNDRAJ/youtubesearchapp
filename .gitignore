@@ -1,0 +1,17 @@
+.env
+venv
+
+# Python bytecode
+**/__pycache__/
+**/*.pyc
+
+# VS Code settings
+.vscode/
+
+# npm stuff
+video-gallery/node_modules/
+video-gallery/package-lock.json
+
+# Other OS or editor junk
+.DS_Store
+Thumbs.db

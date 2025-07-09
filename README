@@ -1,0 +1,4 @@
+To run frontend: in video-gallery, run npm start
+To run backend: in directory containing backend, run uvicorn backend.app:app --reload --port 8000
+
+log. just created the add_to_messages.py script. planning on making it so that the messages.json is used in the get_ideas.py script.

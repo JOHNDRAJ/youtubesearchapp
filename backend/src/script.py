@@ -1,7 +1,11 @@
 from googleapiclient.discovery import build
 import json
+from dotenv import load_dotenv
+import os
 
-api_key = "AIzaSyCaIbuMru2i2_2zPRjeitBM-ODReG241NQ"
+load_dotenv()
+api_key = os.getenv("YT_API_KEY")
+
 
 youtube = build("youtube", "v3", developerKey=api_key)
 
@@ -34,5 +38,3 @@ def generate_vids():
             json_item['url'] = f"http://www.youtube.com/embed/{item['id']['videoId']}"
             response_data.append(json_item)
     return response_data
-
-

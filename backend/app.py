@@ -13,14 +13,6 @@ app.add_middleware(
 )
 
 @app.get("/videos")
-async def list_videos():
-    """
-    your_script.generate()
-    should return something like:
-      [
-        {"title": "...", "url": "...", "thumbnail": "..."},
-        ...
-      ]
-    """
-    videos = generate_vids()
+async def list_videos(query: str | None = None):
+    videos = generate_vids(query)
     return {"videos": videos}

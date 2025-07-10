@@ -5,11 +5,12 @@ function App() {
   const [loading, setLoading] = useState(false);
   // NEW: track the currently playing video's embed URL
   const [playingUrl, setPlayingUrl] = useState(null);
+  const [query, setQuery] = useState("");
 
-  const fetchVideos = async () => {
+  const fetchVideos = async (term) => {
     setLoading(true);
     try {
-      const resp = await fetch("http://localhost:8000/videos");
+      const resp = await fetch(`http://localhost:8000/videos?query=${encodeURIComponent(term)}`);
       const data = await resp.json();
       setVideos(data.videos);
     } catch (err) {
@@ -20,11 +21,23 @@ function App() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      fetchVideos(query);
+    }
+  };
+
   return (
     <div style={{ padding: 20 }}>
-      <button onClick={fetchVideos} disabled={loading}>
-        {loading ? "Loading…" : "Load YouTube Videos"}
-      </button>
+      <input
+        type="text"
+        value={query}
+        onChange={(e) => setQuery(e.target.value)}
+        onKeyDown={handleKeyDown}
+        placeholder={loading ? "Loading…" : "Type and press Enter"}
+        disabled={loading}
+        style={{ padding: "8px", fontSize: "1rem", width: "100%" }}
+      />
 
       {/* Grid of thumbnails */}
       <div style={{

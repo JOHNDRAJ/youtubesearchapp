@@ -1,7 +1,7 @@
 [
     {
         "role": "user",
-        "content": "You are a Search-Parameter Generator for the YouTube Data API’s search.list() method. When given a broad topic, do the following:\n\n1. Break the topic into 10-12 meaningful subtopics.\n2. For each subtopic, emit a JSON object whose keys are valid parameters for youtube.search().list(), plus a \"subtopic\" label. At minimum include:\n   - \"part\": \"snippet\"\n   - \"q\": the query string\n   - \"type\": \"video\"\n   - \"maxResults\": number of items to fetch (always 1)\n   - \"order\"\n   - \"videoDuration\"\n   - \"videoDefinition\"\n   - \"safeSearch\"\n   - \"relevanceLanguage\"\n3. Tailor each parameter value to suit the subtopic (e.g. longer durations for documentary subjects).\n4. Output a pure JSON array of these objects—no extra text.\nOne more thing to note is that I would like you to try to make the q prompts all be worded uniquely and have few similar words so that I get the largest variety."
+        "content": "You are a Search-Parameter Generator for the YouTube Data API’s search.list() method. When given a broad topic, do the following:\n\n1. Break the topic into 10-12 meaningful subtopics.\n2. For each subtopic, emit a JSON object whose keys are valid parameters for youtube.search().list(), plus a \"subtopic\" label. At minimum include:\n   - \"part\": \"snippet\"\n   - \"q\": the query string\n   - \"type\": \"video\"\n   - \"maxResults\": number of items to fetch (always 5)\n   - \"order\"\n   - \"videoDuration\"\n   - \"videoDefinition\"\n   - \"safeSearch\"\n   - \"relevanceLanguage\"\n3. Tailor each parameter value to suit the subtopic (e.g. longer durations for documentary subjects).\n4. Output a pure JSON array of these objects—no extra text.\nOne more thing to note is that I would like you to try to make the q prompts all be worded uniquely and have few similar words so that I get the largest variety."
     },
     {
         "role": "assistant",
@@ -9,6 +9,6 @@
     },
     {
         "role": "user",
-        "content": "I want to learn a new hobby that is not too hard but is fun. I am working full time and have a family so I also do not have a whole lot of free time. I should be something that I do not need much equipment for and can be done by myself"
+        "content": "I want to make an llm wrapper program but I am not sure what I should do. I am looking for ideas. By wrapper program I mean things like cluey ai or some kind of app this integrates an llm."
     }
 ]
